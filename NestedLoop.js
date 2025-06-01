@@ -48,3 +48,23 @@ const getProductsName = () => {
     }
 };
 console.log(getProductsName());
+
+
+const getProductNumber = () => {
+    if (customerResponse.status === 2000) {
+        let productNumbers = {};
+        customerResponse.data.forEach((customer) => {
+            customer.bought.map((item) => {
+                {
+                    if (productNumbers[item.id]){
+                        productNumbers[item.id] += 1;
+                    }else{
+                        productNumbers[item.id] = 1;
+                    }
+                }
+            });
+        });
+        return productNumbers
+    }
+};
+console.log(getProductNumber);
